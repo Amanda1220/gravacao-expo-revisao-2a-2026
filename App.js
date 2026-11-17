@@ -5,16 +5,17 @@ import '@/global.css';
 import {Button, ButtonText} from './components/ui/button';
 import { useState } from "react";
 
-//https://catfact.ninja/docs?api-docs.json
-//https://catfact.ninja/#/Breeds/getBreeds
+//url base - https://breedhealthscore.com
+//https://breedhealthscore.com/api/v1/openapi.json
+//https://breedhealthscore.com/developers/
 
 export default function App () {
-  const URL_BASE = 'https://catfact.ninja/';
+  const URL_BASE = 'https://breedhealthscore.com';
   const [data, setData] = useState(null);
 
   const getData = async () =>{
     try{
-      const response = await fetch(URL_BASE + "/#/Breeds/getBreeds");
+      const response = await fetch(URL_BASE + "/api/breeds.json");
       if (!response.ok) {
         Alert.alert('Carros', 'Erro ao carregar a página');
         return;
