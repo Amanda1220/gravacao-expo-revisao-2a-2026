@@ -5,13 +5,16 @@ import '@/global.css';
 import {Button, ButtonText} from './components/ui/button';
 import { useState } from "react";
 
+//https://catfact.ninja/docs?api-docs.json
+//https://catfact.ninja/#/Breeds/getBreeds
+
 export default function App () {
-  const URL_BASE = 'https://api.carapi.dev/v1';
+  const URL_BASE = 'https://catfact.ninja/';
   const [data, setData] = useState(null);
 
   const getData = async () =>{
     try{
-      const response = await fetch(URL_BASE + "/listing?make=Honda&limit=3&offset=2&token=carapi_92ea187da 08f5c099ba63c1fd5e09ab5");
+      const response = await fetch(URL_BASE + "/#/Breeds/getBreeds");
       if (!response.ok) {
         Alert.alert('Carros', 'Erro ao carregar a página');
         return;
